@@ -1,0 +1,6 @@
+body { background: #f5f7fb; min-height: 100vh; }
+.hero { background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #fff; border-radius: 1rem; }
+.course-card { transition: transform .15s, box-shadow .15s; border: 0; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.course-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,.14); }
+.stat-card { border: 0; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.footer { color: #6b7280; }
