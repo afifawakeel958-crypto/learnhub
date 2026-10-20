@@ -12,9 +12,11 @@ export default function AppNavbar() {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="md" className="mb-4">
+    <Navbar expand="md" sticky="top" className="app-navbar mb-4">
       <Container>
-        <Navbar.Brand as={Link} to="/">LearnHub</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" className="brand">
+          <span className="brand-mark">L</span> LearnHub
+        </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="me-auto">
@@ -25,15 +27,15 @@ export default function AppNavbar() {
           <Nav className="align-items-center">
             {user ? (
               <>
-                <span className="text-light me-3">
-                  {user.name} <Badge bg="info" className="text-capitalize">{user.role}</Badge>
+                <span className="me-3 fw-semibold">
+                  {user.name} <Badge className="role-badge">{user.role}</Badge>
                 </span>
-                <Button variant="outline-light" size="sm" onClick={handleLogout}>Logout</Button>
+                <Button variant="outline-primary" size="sm" onClick={handleLogout}>Logout</Button>
               </>
             ) : (
               <>
                 <Nav.Link as={Link} to="/login">Login</Nav.Link>
-                <Button as={Link} to="/register" variant="primary" size="sm">Register</Button>
+                <Button as={Link} to="/register" variant="primary" size="sm" className="ms-2">Get Started</Button>
               </>
             )}
           </Nav>

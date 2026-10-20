@@ -1,5 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Routes, Route, Link } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
 import AppNavbar from './components/AppNavbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
@@ -14,7 +14,7 @@ export default function App() {
   return (
     <>
       <AppNavbar />
-      <Container className="pb-5">
+      <Container>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
@@ -26,7 +26,29 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
-      <footer className="footer text-center pb-4">LearnHub &copy; {new Date().getFullYear()} - MERN Stack LMS</footer>
+
+      <footer className="site-footer">
+        <Container>
+          <Row className="g-4">
+            <Col md={5}>
+              <h6>LearnHub</h6>
+              <p>A MERN stack Learning Management System where students learn, instructors teach and admins manage everything.</p>
+            </Col>
+            <Col xs={6} md={3}>
+              <h6>Explore</h6>
+              <Link to="/">Home</Link>
+              <Link to="/courses">Courses</Link>
+              <Link to="/dashboard">Dashboard</Link>
+            </Col>
+            <Col xs={6} md={4}>
+              <h6>Account</h6>
+              <Link to="/login">Login</Link>
+              <Link to="/register">Register</Link>
+            </Col>
+          </Row>
+          <div className="footer-bottom text-center">&copy; {new Date().getFullYear()} LearnHub. Built with MongoDB, Express, React and Node.js.</div>
+        </Container>
+      </footer>
     </>
   );
 }
